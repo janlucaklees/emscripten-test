@@ -7,8 +7,4 @@ wasm:
 
 .$PHONY: start
 start: wasm
-	cd src/web && python -m http.server
-
-.$PHONY: clean
-clean:
-	rm -f $(TARGET)
+	yarn start

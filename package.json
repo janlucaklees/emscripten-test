@@ -1,0 +1,25 @@
+{
+  "name": "Lucii",
+  "version": "0.0.0",
+  "description": "Exploring options to run interactive C++ simulations in the browser.",
+  "main": "src/web/index.html",
+  "scripts": {
+    "start": "encore dev-server --hot",
+    "build": "encore production"
+  },
+  "author": "Jan-Luca Klees",
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@symfony/webpack-encore": "^4.2.0",
+    "core-js": "^3.30.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "sass": "^1.61.0",
+    "sass-loader": "^13.0.0",
+    "ts-loader": "^9.0.0",
+    "typescript": "^5.0.4",
+    "webpack": "^5.78.0",
+    "webpack-cli": "^5.0.1"
+  }
+}

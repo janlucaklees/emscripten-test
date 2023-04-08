@@ -17,10 +17,17 @@ async function initWasm() {
 }
 
 (async () => {
-  const exports = await initWasm();
+  const { update } = await initWasm();
 
-  // Use the doubler function from the C++ simulation.
-  for (let x = 0; x < 10; x += 0.1) {
-    console.log(exports.doubler(x));
+  let x = 0;
+
+  function step() {
+    console.log(update(x));
+
+    x++;
+
+    window.requestAnimationFrame(step);
   }
+
+  window.requestAnimationFrame(step);
 })();

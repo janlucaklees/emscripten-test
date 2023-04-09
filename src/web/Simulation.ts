@@ -22,17 +22,33 @@ export default class Simulation {
   }
 
   initScene(): void {
-    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     this.scene = new THREE.Scene();
-    this.renderer = new THREE.WebGLRenderer({ antialias: true });
 
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-
-    document.body.appendChild(this.renderer.domElement);
+    this.scene.background = new THREE.Color(0xcccccc);
+    this.scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
   }
 
-	initControls(): void {
-    this.controls = new TrackballControls(this.camera, this.renderer.domElement);
+  initLighting(scene: THREE.Scene) {
+    const dirLight1 = new THREE.DirectionalLight(0xffffff);
+    dirLight1.position.set(1, 1, 1);
+    scene.add(dirLight1);
+
+    const dirLight2 = new THREE.DirectionalLight(0x002288);
+    dirLight2.position.set(- 1, - 1, - 1);
+    scene.add(dirLight2);
+
+    const ambientLight = new THREE.AmbientLight(0x222222);
+    scene.add(ambientLight);
+  }
+
+  initCamera() {
+    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    this.camera.position.z = 5;
+  }
+
+	initControls(camera: THREE.Camera, renderer: THREE.Renderer): void {
+    this.controls = new TrackballControls(camera, renderer.domElement);
 
     this.controls.rotateSpeed = 3.0;
     this.controls.zoomSpeed = 1.2;
@@ -41,19 +57,28 @@ export default class Simulation {
     this.controls.keys = ['KeyA', 'KeyS', 'KeyD'];
   }
 
+  initRenderer() {
+    this.renderer = new THREE.WebGLRenderer({ antialias: true });
+
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+
+    document.body.appendChild(this.renderer.domElement);
+  }
+
   async init(): Promise<Simulation> {
     await this.initWasm()
     this.initScene();
-    this.initControls();
+    this.initLighting(this.scene);
+    this.initCamera();
+    this.initRenderer();
+    this.initControls(this.camera, this.renderer);
 
     // Add some stuff
     const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const material = new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true });
     this.cube = new THREE.Mesh(geometry, material);
 
     this.scene.add(this.cube);
-
-    this.camera.position.z = 5;
 
     return this;
   }

@@ -1,7 +1,10 @@
 import Simulation from './Simulation'
 
-const simulation = new Simulation();
 
-simulation.init();
+(async function() {
+  const simulation = new Simulation();
 
-simulation.start();
+  await simulation.init();
+
+  simulation.start();
+})()

@@ -23,6 +23,7 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "three": "^0.151.3"
   }
 }

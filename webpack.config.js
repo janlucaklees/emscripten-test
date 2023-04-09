@@ -21,7 +21,7 @@ Encore
    * Each entry will result in one JavaScript file (e.g. app.js)
    * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
    */
-  .addEntry('app', './src/web/main.js')
+  .addEntry('app', './src/web/main.ts')
 
   .copyFiles({
     from: './src/web',

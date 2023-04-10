@@ -1,24 +1,27 @@
+import { Class } from 'estree';
 import * as THREE from 'three';
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
 
-import loadWasmModule from './loadWasmModule';
+import initWasmSimulatorModule from './simulator.js';
+
 
 
 export default class Simulation {
 
-  wasmUpdate: CallableFunction;
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   renderer: THREE.WebGLRenderer;
   cube: THREE.Mesh;
   controls: THREE.EventDispatcher;
 
+  wasmSimulatorModule: any;
+  simulator: any;
+
   constructor() {
   }
 
-  async initWasm(): Promise<void> {
-    const wasmModule: WebAssembly.WebAssemblyInstantiatedSource = await loadWasmModule('simulation.wasm')
-    this.wasmUpdate = wasmModule.instance.exports.update as CallableFunction;
+  async initWasmSimulator(): Promise<void> {
+    this.wasmSimulatorModule = await initWasmSimulatorModule();
   }
 
   initScene(): void {
@@ -66,7 +69,7 @@ export default class Simulation {
   }
 
   async init(): Promise<Simulation> {
-    await this.initWasm()
+    await this.initWasmSimulator()
     this.initScene();
     this.initLighting(this.scene);
     this.initCamera();
@@ -84,14 +87,14 @@ export default class Simulation {
   }
 
   start(): void {
+    this.simulator = new this.wasmSimulatorModule.Simulator(0.1);
     this.update();
   }
 
   update() {
     window.requestAnimationFrame(() => this.update());
 
-    this.cube.rotation.x += this.wasmUpdate(0.01);
-    this.cube.rotation.y += this.wasmUpdate(0.01);
+    this.cube.rotation.x = this.simulator.update();
 
     this.controls.update();
 

@@ -1,9 +1,9 @@
-TARGET = src/web/simulation.wasm
-SRC = src/simulation/simulation.c
+TARGET = src/web/simulator.js
+SRC = src/simulation/simulator.cpp
 
 .$PHONY: wasm
 wasm:
-	emcc $(SRC) -O3 -s WASM=1 -s SIDE_MODULE=1 -o $(TARGET)
+	emcc -lembind -std=c++14 -s ENVIRONMENT='web' -s EXPORT_ES6=1 -o $(TARGET) $(SRC)
 
 .$PHONY: start
 start: wasm

@@ -9,4 +9,4 @@ import Simulation from './Simulation'
   await simulation.init();
 
   simulation.start();
-})()
+})();

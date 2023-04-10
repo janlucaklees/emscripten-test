@@ -1,3 +1,4 @@
-/src/web/simulation.wasm
+/src/web/simulator.js
+/src/web/simulator.wasm
 /node_modules
 /dist

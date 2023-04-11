@@ -1,6 +1,7 @@
 import { Class } from 'estree';
 import * as THREE from 'three';
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
+import Stats from 'three/examples/jsm/libs/stats.module.js';
 
 import initWasmSimulatorModule from './Simulator.js';
 
@@ -15,6 +16,7 @@ export default class Simulation {
   camera: THREE.PerspectiveCamera;
   renderer: THREE.WebGLRenderer;
   controls: THREE.EventDispatcher;
+  stats: Stats;
 
   wasmSimulatorModule: any;
   simulator: any;
@@ -72,12 +74,19 @@ export default class Simulation {
     document.body.appendChild(this.renderer.domElement);
   }
 
+  initStats() {
+    this.stats = new Stats();
+
+    document.body.appendChild(this.stats.dom);
+  }
+
   async init(): Promise<Simulation> {
     await this.initWasmSimulator()
     this.initScene();
     this.initLighting(this.scene);
     this.initCamera();
     this.initRenderer();
+    this.initStats();
     this.initControls(this.camera, this.renderer);
 
     return this;
@@ -103,6 +112,7 @@ export default class Simulation {
     );
 
     this.controls.update();
+    this.stats.update();
 
     this.renderer.render(this.scene, this.camera);
   }

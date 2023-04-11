@@ -1,4 +1,3 @@
-import { Class } from 'estree';
 import * as THREE from 'three';
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
 import Stats from 'three/examples/jsm/libs/stats.module.js';

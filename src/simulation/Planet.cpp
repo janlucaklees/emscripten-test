@@ -1,6 +1,7 @@
 #include "Planet.h"
 #include "Vector.h"
 #include <emscripten/bind.h>
+#include <math.h>
 
 Planet::Planet(float mass, float x, float y, float z) :
   mass(mass),
@@ -10,6 +11,7 @@ Planet::Planet(float mass, float x, float y, float z) :
 {}
 
 float Planet::getMass() const { return mass; }
+float Planet::getRadius() const { return 3.0f * mass / 4.0f * M_PI; }
 
 Vector Planet::getPosition() const { return position; }
 
@@ -33,6 +35,7 @@ EMSCRIPTEN_BINDINGS(planet) {
   emscripten::class_<Planet>("Planet")
       .constructor<float, float, float, float>()
       .property("mass", &Planet::getMass)
+      .property("radius", &Planet::getRadius)
       .property("x", &Planet::getX)
       .property("y", &Planet::getY)
       .property("z", &Planet::getZ);

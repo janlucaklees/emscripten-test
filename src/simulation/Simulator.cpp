@@ -57,8 +57,12 @@ std::vector<Planet> &Simulator::update() {
 Vector Simulator::calculateForceVector(Planet planetA, Planet planetB) {
   Vector forceVector = planetA.getPosition() - planetB.getPosition();
 
-  float force = (g * planetA.getMass() * planetB.getMass()) /
-                forceVector.magnitudeSquared();
+  float distance = forceVector.magnitude();
+  float minDistance = planetA.getRadius() + planetB.getRadius();
+  distance = std::max(distance, minDistance);
+
+  float force =
+      (g * planetA.getMass() * planetB.getMass()) / (distance * distance);
 
   return forceVector.normalize() * force;
 }

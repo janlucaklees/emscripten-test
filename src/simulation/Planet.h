@@ -8,6 +8,7 @@ public:
   Planet(float mass, float x, float y, float z);
 
   float getMass() const;
+  float getRadius() const;
 
   Vector getPosition() const;
 

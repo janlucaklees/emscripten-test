@@ -4,7 +4,7 @@ import Simulation from './Simulation'
 
 
 (async function() {
-  const simulation = new Simulation();
+  const simulation = new Simulation(5);
 
   await simulation.init();
 

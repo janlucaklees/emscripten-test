@@ -1,0 +1,13 @@
+/**
+ * @license
+ * Copyright 2010-2023 Three.js Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+/**
+* Generate unique and beautiful colors from any texts or numbers
+ * @version v1.1.0
+ * @link https://github.com/dastoori/uniqolor#README
+ * @author Rasool Dastoori
+ * @license MIT License, http://www.opensource.org/licenses/MIT
+ */

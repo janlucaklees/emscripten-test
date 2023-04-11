@@ -1,0 +1,16 @@
+{
+  "docs/app.css": "/emscripten-test/app.1832ccc0.css",
+  "docs/app.js": "/emscripten-test/app.419c3304.js",
+  "docs/runtime.js": "/emscripten-test/runtime.adb3b2b3.js",
+  "docs/227.554aa7c9.js": "/emscripten-test/227.554aa7c9.js",
+  "docs/assets/Simulator.wasm.map": "/emscripten-test/assets/Simulator.wasm.map",
+  "docs/Simulator.wasm": "/emscripten-test/Simulator.931c36b8.wasm",
+  "docs/assets/Simulator.wasm": "/emscripten-test/assets/Simulator.931c36b8.wasm",
+  "docs/simulation/Simulator.cpp": "/emscripten-test/simulation/Simulator.cpp",
+  "docs/simulation/Vector.cpp": "/emscripten-test/simulation/Vector.cpp",
+  "docs/simulation/Planet.cpp": "/emscripten-test/simulation/Planet.cpp",
+  "docs/index.html": "/emscripten-test/index.html",
+  "docs/simulation/Simulator.h": "/emscripten-test/simulation/Simulator.h",
+  "docs/simulation/Vector.h": "/emscripten-test/simulation/Vector.h",
+  "docs/simulation/Planet.h": "/emscripten-test/simulation/Planet.h"
+}

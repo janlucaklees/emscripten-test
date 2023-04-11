@@ -28,6 +28,18 @@ Encore
     pattern: /\.(wasm)$/
   })
 
+  .copyFiles({
+    from: './src/web',
+    to: 'assets/[name].[ext]',
+    pattern: /\.(wasm\.map)$/
+  })
+
+  .copyFiles({
+    from: './src/simulation',
+    to: 'simulation/[name].[ext]',
+    pattern: /\.(cpp|h)$/
+  })
+
   // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
   .splitEntryChunks()
 

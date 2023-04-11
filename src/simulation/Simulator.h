@@ -6,16 +6,31 @@
 
 class Simulator {
 public:
-  Simulator(int numPlanets);
+  Simulator(
+    int numPlanets,
+    float g,
+    float minMass,
+    float maxMass,
+    float distributionRange
+  );
 
-  Planet &getPlanet(int index);
   std::vector<Planet> &getPlanets();
 
   std::vector<Planet> &update();
 
 private:
+  int numberOfPlanets;
+  float g;
+  float minMass;
+  float maxMass;
+  float distributionRange;
+
   std::vector<Planet> planets;
+
+  void createPlanets();
+  Vector calculateForceVector(Planet planetA, Planet planetB);
   float getRandomCoordinate();
+  float getRandomMass();
 };
 
 #endif // SOLAR_SYSTEM_H

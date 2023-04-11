@@ -10,6 +10,11 @@ import initWasmSimulatorModule from './Simulator.js';
 export default class Simulation {
 
   numberOfPlanets: number;
+  g: number;
+  minMass: number;
+  maxMass: number;
+  distributionRange: number;
+
   planetGeometries: Array<THREE.Mesh>
 
   scene: THREE.Scene;
@@ -21,8 +26,18 @@ export default class Simulation {
   wasmSimulatorModule: any;
   simulator: any;
 
-  constructor(numberOfPlanets: number) {
+  constructor(
+    numberOfPlanets: number,
+    g: number = 0.1,
+    minMass: number = 1,
+    maxMass: number = 10,
+    distributionRange: number = 100,
+  ) {
     this.numberOfPlanets = numberOfPlanets;
+    this.g = g;
+    this.minMass = minMass;
+    this.maxMass = maxMass;
+    this.distributionRange = distributionRange;
   }
 
   async initWasmSimulator(): Promise<void> {
@@ -34,7 +49,7 @@ export default class Simulation {
     this.scene = new THREE.Scene();
 
     this.scene.background = new THREE.Color(0xcccccc);
-    this.scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
+    // this.scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
   }
 
   initLighting(scene: THREE.Scene) {
@@ -53,7 +68,7 @@ export default class Simulation {
   initCamera() {
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-    this.camera.position.z = 100;
+    this.camera.position.z = this.distributionRange * 1.2;
   }
 
 	initControls(camera: THREE.Camera, renderer: THREE.Renderer): void {
@@ -94,7 +109,11 @@ export default class Simulation {
 
   start(): void {
     this.simulator = new this.wasmSimulatorModule.Simulator(
-      this.numberOfPlanets
+      this.numberOfPlanets,
+      this.g,
+      this.minMass,
+      this.maxMass,
+      this.distributionRange,
     );
 
     this.placePlanets(
@@ -123,11 +142,14 @@ export default class Simulation {
     for (var i = 0; i < this.numberOfPlanets; i++) {
       const planet = planets.get(i);
 
-      const geometry = new THREE.SphereGeometry(1, 32, 16);
+      const radius = 3 * planet.mass / 4 * Math.PI;
+
+      const geometry = new THREE.SphereGeometry(radius, 64, 32);
       const mesh = new THREE.Mesh(geometry, material);
 
       mesh.position.x = planet.x;
       mesh.position.y = planet.y;
+      mesh.position.z = planet.z;
 
       this.scene.add(mesh);
 
@@ -142,6 +164,7 @@ export default class Simulation {
 
       planetGeometry.position.x = planet.x;
       planetGeometry.position.y = planet.y;
+      planetGeometry.position.z = planet.z;
     }
   }
 }

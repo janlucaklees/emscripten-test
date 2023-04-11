@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
 import Stats from 'three/examples/jsm/libs/stats.module.js';
+import uniqolor from 'uniqolor';
 
 import initWasmSimulatorModule from './Simulator.js';
 
@@ -140,12 +141,15 @@ export default class Simulation {
   }
 
   placePlanets(planets): void {
-    const material = new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true });
+
 
     for (var i = 0; i < this.numberOfPlanets; i++) {
       const planet = planets.get(i);
 
       const radius = 3 * planet.mass / 4 * Math.PI;
+
+      const color = uniqolor(i * radius);
+      const material = new THREE.MeshPhongMaterial({ color: Number(`0x${color.color.substring(1)}`), flatShading: true });
 
       const geometry = new THREE.SphereGeometry(radius, 64, 32);
       const mesh = new THREE.Mesh(geometry, material);

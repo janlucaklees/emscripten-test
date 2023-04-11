@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
-    "three": "^0.151.3"
+    "three": "^0.151.3",
+    "uniqolor": "^1.1.0"
   }
 }

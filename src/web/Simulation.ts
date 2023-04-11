@@ -27,6 +27,8 @@ export default class Simulation {
   wasmSimulatorModule: any;
   simulator: any;
 
+  animationFrameRequestId: number;
+
   constructor(
     numberOfPlanets: number,
     g: number = 0.1,
@@ -51,8 +53,8 @@ export default class Simulation {
   initScene(): void {
     this.scene = new THREE.Scene();
 
-    this.scene.background = new THREE.Color(0x0F193B);
-    this.scene.fog = new THREE.FogExp2(0x0F193B, 0.002);
+    this.scene.background = new THREE.Color(0x0b1013);
+    this.scene.fog = new THREE.FogExp2(0x0b1013, 0.001);
   }
 
   initLighting(scene: THREE.Scene) {
@@ -128,7 +130,7 @@ export default class Simulation {
   }
 
   update(): void {
-    window.requestAnimationFrame(() => this.update());
+    this.animationFrameRequestId = window.requestAnimationFrame(() => this.update());
 
     this.updatePlanets(
       this.simulator.update()
@@ -173,5 +175,12 @@ export default class Simulation {
       planetGeometry.position.y = planet.y;
       planetGeometry.position.z = planet.z;
     }
+  }
+
+  dispose() {
+    window.cancelAnimationFrame(this.animationFrameRequestId);
+    this.renderer.dispose();
+    this.renderer.domElement.remove();
+    this.simulator.delete();
   }
 }

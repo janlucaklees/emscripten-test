@@ -1,1 +1,44 @@
 @import 'normalize.css';
+
+body {
+  background-color: #0b1013;
+  font-family: sans-serif;
+  color: #0f2540;
+}
+
+.controls {
+  position: fixed;
+  top: 3rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 1.5rem 3.5rem;
+
+  background-color: #FCFAF2;
+  border-radius: 1rem;
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  &__input {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+
+    background-color: #BDC0BA;
+    border-radius: 0.5rem;
+    border: 4px solid transparent;
+
+    color: #0f2540;
+
+    &:focus {
+      outline: none;
+      border: 4px solid #86C166;
+    }
+  }
+}

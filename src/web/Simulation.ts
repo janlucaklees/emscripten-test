@@ -51,8 +51,8 @@ export default class Simulation {
   initScene(): void {
     this.scene = new THREE.Scene();
 
-    this.scene.background = new THREE.Color(0xcccccc);
-    this.scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
+    this.scene.background = new THREE.Color(0x0F193B);
+    this.scene.fog = new THREE.FogExp2(0x0F193B, 0.002);
   }
 
   initLighting(scene: THREE.Scene) {
@@ -149,7 +149,7 @@ export default class Simulation {
       const radius = 3 * planet.mass / 4 * Math.PI;
 
       const color = uniqolor(i * radius);
-      const material = new THREE.MeshPhongMaterial({ color: Number(`0x${color.color.substring(1)}`), flatShading: true });
+      const material = new THREE.MeshPhongMaterial({ color: Number(`0x${color.color.substring(1)}`), flatShading: false });
 
       const geometry = new THREE.SphereGeometry(radius, 64, 32);
       const mesh = new THREE.Mesh(geometry, material);

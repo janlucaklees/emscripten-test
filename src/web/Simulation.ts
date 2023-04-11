@@ -14,6 +14,7 @@ export default class Simulation {
   minMass: number;
   maxMass: number;
   distributionRange: number;
+  initialVelocityScalar: number;
 
   planetGeometries: Array<THREE.Mesh>
 
@@ -32,12 +33,14 @@ export default class Simulation {
     minMass: number = 1,
     maxMass: number = 10,
     distributionRange: number = 100,
+    initialVelocityScalar: number = 0.5
   ) {
     this.numberOfPlanets = numberOfPlanets;
     this.g = g;
     this.minMass = minMass;
     this.maxMass = maxMass;
     this.distributionRange = distributionRange;
+    this.initialVelocityScalar = initialVelocityScalar;
   }
 
   async initWasmSimulator(): Promise<void> {
@@ -114,6 +117,7 @@ export default class Simulation {
       this.minMass,
       this.maxMass,
       this.distributionRange,
+      this.initialVelocityScalar
     );
 
     this.placePlanets(

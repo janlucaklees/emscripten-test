@@ -11,7 +11,8 @@ public:
     float g,
     float minMass,
     float maxMass,
-    float distributionRange
+    float distributionRange,
+    float initialVelocityScalar
   );
 
   std::vector<Planet> &getPlanets();
@@ -24,6 +25,7 @@ private:
   float minMass;
   float maxMass;
   float distributionRange;
+  float initialVelocityScalar;
 
   std::vector<Planet> planets;
 

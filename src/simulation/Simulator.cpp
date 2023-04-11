@@ -11,13 +11,15 @@ Simulator::Simulator(
   float g,
   float minMass,
   float maxMass,
-  float distributionRange
+  float distributionRange,
+  float initialVelocityScalar
 ):
   numberOfPlanets(numberOfPlanets),
   g(g),
   minMass(minMass),
   maxMass(maxMass),
-  distributionRange(distributionRange)
+  distributionRange(distributionRange),
+  initialVelocityScalar(initialVelocityScalar)
 {
   createPlanets();
 }
@@ -28,9 +30,16 @@ void Simulator::createPlanets() {
   for (int i = 0; i < numberOfPlanets; ++i) {
     planets.push_back(Planet(
       getRandomMass(),
-      getRandomCoordinate(),
-      getRandomCoordinate(),
-      getRandomCoordinate()
+      Vector(
+        getRandomCoordinate(),
+        getRandomCoordinate(),
+        getRandomCoordinate()
+      ),
+      Vector(
+        getRandomCoordinate(),
+        getRandomCoordinate(),
+        getRandomCoordinate()
+      ).normalize() * initialVelocityScalar
     ));
   }
 }
@@ -82,7 +91,7 @@ float Simulator::getRandomMass() {
 // Binding code
 EMSCRIPTEN_BINDINGS(simulator) {
   emscripten::class_<Simulator>("Simulator")
-    .constructor<int, float, float, float, float>()
+    .constructor<int, float, float, float, float, float>()
     .function("getPlanets", &Simulator::getPlanets)
     .function("update", &Simulator::update);
 

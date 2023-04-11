@@ -5,7 +5,7 @@
 
 class Planet {
 public:
-  Planet(float mass, float x, float y, float z);
+  Planet(float mass, Vector, Vector);
 
   float getMass() const;
   float getRadius() const;

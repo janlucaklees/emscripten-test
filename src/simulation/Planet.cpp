@@ -3,11 +3,11 @@
 #include <emscripten/bind.h>
 #include <math.h>
 
-Planet::Planet(float mass, float x, float y, float z) :
+Planet::Planet(float mass, Vector position, Vector velocity) :
   mass(mass),
-  position(Vector(x, y, z)),
+  position(position),
   acceleration(Vector(0, 0, 0)),
-  velocity(Vector(0, 0, 0))
+  velocity(velocity)
 {}
 
 float Planet::getMass() const { return mass; }
@@ -33,7 +33,7 @@ void Planet::updatePosition() {
 // Binding code
 EMSCRIPTEN_BINDINGS(planet) {
   emscripten::class_<Planet>("Planet")
-      .constructor<float, float, float, float>()
+      .constructor<float, Vector, Vector>()
       .property("mass", &Planet::getMass)
       .property("radius", &Planet::getRadius)
       .property("x", &Planet::getX)

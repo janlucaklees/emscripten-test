@@ -7,14 +7,23 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
   Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
 }
 
-Encore
-  // directory where compiled assets will be stored
-  .setOutputPath('docs/')
-  // public path used by the web server to access the output path
-  .setPublicPath('/emscripten-test')
-  // only needed for CDN's or sub-directory deploy
-  .setManifestKeyPrefix('docs')
+if (Encore.isProduction()) {
+  Encore
+    // directory where compiled assets will be stored
+    .setOutputPath('docs/')
+    // public path used by the web server to access the output path
+    .setPublicPath('/emscripten-test')
+    // only needed for CDN's or sub-directory deploy
+    .setManifestKeyPrefix('docs')
+} else {
+  Encore
+    // directory where compiled assets will be stored
+    .setOutputPath('docs/')
+    // public path used by the web server to access the output path
+    .setPublicPath('/')
+}
 
+Encore
   /*
    * ENTRY CONFIG
    *

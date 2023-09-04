@@ -1,0 +1,12 @@
+/docs/
+/node_modules/
+/src/
+/.dockerignore
+/.editorconfig
+/.gitignore
+/Dockerfile
+/Makefile
+/package.json
+/tsconfig.json
+/webpack.config.js
+/yarn.lock

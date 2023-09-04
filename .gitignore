@@ -2,3 +2,4 @@
 /src/web/Simulator.wasm
 /src/web/Simulator.wasm.map
 /node_modules
+/gmp

@@ -4,7 +4,7 @@
       "js": [
         "/emscripten-test/runtime.adb3b2b3.js",
         "/emscripten-test/339.ae709444.js",
-        "/emscripten-test/app.3bcfe707.js"
+        "/emscripten-test/app.a792fa13.js"
       ],
       "css": [
         "/emscripten-test/app.1832ccc0.css"
@@ -14,7 +14,7 @@
   "integrity": {
     "/emscripten-test/runtime.adb3b2b3.js": "sha384-1ZoNL3fHrbbCAdYXFyeYV++zMUNQKwRLbjN24ta9upZs3Sn9a+pnY+fZecw+QJoy",
     "/emscripten-test/339.ae709444.js": "sha384-t86tTNOlycBzSYZjD92zG6MK8yA09QL4stQug2X8dH7Vn/69asm515u7UAZlpiQs",
-    "/emscripten-test/app.3bcfe707.js": "sha384-oLCao1QALzCSWQWCkmQz8TpoKcxms6eAfdSbZHKn5wZFV8Nj9DYh3UmLIpr3BPNX",
+    "/emscripten-test/app.a792fa13.js": "sha384-0uTk7mTkSx5slAF/lpCnG1rpL1RJExxKDWvob2Tj/GcQqGMpgsdMC+WdLRVR2yHM",
     "/emscripten-test/app.1832ccc0.css": "sha384-iKmqLcBGgnDdwZUEa92jYj1AsHZdURVqTm/oFiQetfgOn2hV1wyy5YtHdgELs/yW"
   }
 }

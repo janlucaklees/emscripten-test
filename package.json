@@ -9,22 +9,23 @@
   },
   "author": "Jan-Luca Klees",
   "devDependencies": {
-    "@babel/core": "^7.21.4",
-    "@babel/preset-env": "^7.21.4",
-    "@symfony/webpack-encore": "^4.2.0",
-    "core-js": "^3.30.0",
-    "file-loader": "^6.0.0",
-    "html-webpack-plugin": "^5.5.0",
-    "sass": "^1.61.0",
-    "sass-loader": "^13.0.0",
-    "ts-loader": "^9.0.0",
-    "typescript": "^5.0.4",
-    "webpack": "^5.78.0",
-    "webpack-cli": "^5.0.1"
+    "@babel/core": "^7.22.17",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-env": "^7.22.15",
+    "@symfony/webpack-encore": "^4.4.0",
+    "core-js": "^3.32.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "sass": "^1.67.0",
+    "sass-loader": "^13.3.2",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
-    "three": "^0.151.3",
+    "three": "^0.156.1",
     "uniqolor": "^1.1.0"
   }
 }

@@ -3,8 +3,8 @@
     "app": {
       "js": [
         "/emscripten-test/runtime.adb3b2b3.js",
-        "/emscripten-test/227.554aa7c9.js",
-        "/emscripten-test/app.419c3304.js"
+        "/emscripten-test/339.ae709444.js",
+        "/emscripten-test/app.3bcfe707.js"
       ],
       "css": [
         "/emscripten-test/app.1832ccc0.css"
@@ -13,8 +13,8 @@
   },
   "integrity": {
     "/emscripten-test/runtime.adb3b2b3.js": "sha384-1ZoNL3fHrbbCAdYXFyeYV++zMUNQKwRLbjN24ta9upZs3Sn9a+pnY+fZecw+QJoy",
-    "/emscripten-test/227.554aa7c9.js": "sha384-WcB7i4TiLIQUJIwI1VSrT3HoV98Ht5zQ9p/bAdLk7OKzSa50HcrRUNm/OK5iUd7U",
-    "/emscripten-test/app.419c3304.js": "sha384-WJUtgRK4F7yCINA5726q1XRyJb6zRwguKk0BuLZYOwXyQJ2td5GaNEOvrO37JdlX",
+    "/emscripten-test/339.ae709444.js": "sha384-t86tTNOlycBzSYZjD92zG6MK8yA09QL4stQug2X8dH7Vn/69asm515u7UAZlpiQs",
+    "/emscripten-test/app.3bcfe707.js": "sha384-oLCao1QALzCSWQWCkmQz8TpoKcxms6eAfdSbZHKn5wZFV8Nj9DYh3UmLIpr3BPNX",
     "/emscripten-test/app.1832ccc0.css": "sha384-iKmqLcBGgnDdwZUEa92jYj1AsHZdURVqTm/oFiQetfgOn2hV1wyy5YtHdgELs/yW"
   }
 }

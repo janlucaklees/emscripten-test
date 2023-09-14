@@ -5,7 +5,7 @@ SRC = 2DTissue/src/*/**.cpp
 build:
 	git submodule init
 	git submodule update
-	(mkdir -p ./gmp && cd ./gmp && hg update) || hg clone https://gmplib.org/repo/gmp/
+	hg clone https://gmplib.org/repo/gmp/
 	docker build --progress=plain .
 
 # .$PHONY: start

@@ -1,9 +1,0 @@
-[submodule "2DTissue"]
-	path = 2DTissue
-	url = git@github.com:MorphoPhysics/2DTissue.git
-[submodule "cgal"]
-	path = cgal
-	url = git@github.com:CGAL/cgal.git
-[submodule "assimp"]
-	path = assimp
-	url = git@github.com:assimp/assimp.git
